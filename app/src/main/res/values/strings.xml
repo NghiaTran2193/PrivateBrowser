@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Private Browser</string>
+
+
+    <string name="search_hit">Search or Enter URL</string>
+    <string name="dialog">Add more</string>
+    <string name="title">Title</string>
+    <string name="title_tin">TDoccute</string>
+    <string name="link">Link</string>
+    <string name="link_tin">TDoccute.com</string>
+    <string name="cancel">CANCEL</string>
+    <string name="ok">OK</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="two">2</string>
+    <string name="cleared">cleared</string>
+    <string name="changed">changed: %1$s</string>
+    <string name="submitted">submitted: %1$s</string>
+    <string name="bookmark">bookmark</string>
+    <string name="add_more">Add More</string>
+    <string name="zero">0</string>
+</resources>
