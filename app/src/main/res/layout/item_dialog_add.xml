@@ -14,12 +14,8 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/add"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="120dp"
+        android:layout_alignEnd="@+id/edTitle"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="30dp"
-        android:layout_toEndOf="@+id/add"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_back" />
 
@@ -27,9 +23,9 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="112dp"
         android:layout_marginTop="31dp"
-        android:layout_centerHorizontal="true"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dialog"
         android:textColor="@color/white"
@@ -56,7 +52,7 @@
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:singleLine="true"
-        android:textColor="@color/text_search"
+        android:textColor="@color/white"
         android:textSize="14sp" />
     <TextView
         android:layout_width="wrap_content"
@@ -79,7 +75,7 @@
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:singleLine="true"
-        android:textColor="@color/text_search"
+        android:textColor="@color/white"
         android:textSize="14sp" />
 
     <TextView
@@ -90,9 +86,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="29dp"
         android:background="@drawable/custom_button"
-        android:text="@string/cancel"
         android:gravity="center"
-        android:textColor="@color/white" />
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/btnOk"
@@ -106,7 +103,8 @@
         android:layout_toEndOf="@+id/edLink"
         android:background="@drawable/custom_button"
         android:backgroundTint="@color/button"
-        android:text="@string/ok"
         android:gravity="center"
-        android:textColor="@color/white" />
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 </RelativeLayout>

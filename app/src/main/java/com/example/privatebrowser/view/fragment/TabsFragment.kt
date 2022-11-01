@@ -31,7 +31,6 @@ class TabsFragment: BaseFragment(){
 
     override fun initView() {
         topSearchBar.visibility = View.INVISIBLE
-        lock.visibility = View.INVISIBLE
         loadImage(homeIcon, R.drawable.ic_add_tab)
         recyclerView.apply {
             setHasFixedSize(true)

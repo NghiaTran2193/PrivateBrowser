@@ -41,9 +41,10 @@ class WebViewFragment(var id : Long,var urlNew : String) : BaseFragment() {
     }
 
     override fun initView() {
-        marginStatusBar(arrayListOf(homeIcon, topSearchBar, lock, tabsBtn))
+//        marginStatusBar(arrayListOf(homeIcon, tabsBtn))
+        homeIcon.visibility = View.VISIBLE
+        topSearchBar.visibility = View.VISIBLE
         loadImage(homeIcon, R.drawable.ic_home_24px)
-        loadImage(lock, R.drawable.ic_lock)
     }
     override fun listenLiveData() {
         tabsViewModel.tabRepository.getCount().observe(this){

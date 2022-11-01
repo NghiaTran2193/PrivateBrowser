@@ -34,7 +34,6 @@ class HomeFragment : BaseFragment() {
 
     override fun initView() {
         homeIcon.visibility = View.INVISIBLE
-        lock.visibility = View.INVISIBLE
         topSearchBar.visibility = View.INVISIBLE
         rcyView.apply {
             setHasFixedSize(true)

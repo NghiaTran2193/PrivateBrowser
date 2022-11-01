@@ -23,7 +23,7 @@ class DialogAddMore(context: Context) : BaseDialog(context) {
         btnCancel.setOnClickListener { dismiss() }
         btnBack.setOnClickListener { dismiss() }
         btnOk.setOnClickListener {
-            if (edLink.text.isNotEmpty() && edTitle.text.isNotEmpty()) {
+            if ((edLink.text.isNotEmpty() && edTitle.text.isNotEmpty())&&(edLink.text.isNotBlank() && edTitle.text.isNotBlank()) ) {
                 listenEventDialog.postValue(App(name = edTitle.text.toString(), url = edLink.text.toString()))
                 dismiss()
             } else {
