@@ -32,11 +32,4 @@ class TabRepository (application: Application) {
     fun getCount():LiveData<Int>{
         return  tabDao.getCount()
     }
-
-    fun insertTab(tabs: Tabs){
-        tabDao.insertTab(tabs)
-    }
-    fun updateTab(tabs: Tabs){
-        tabDao.updateTab(tabs)
-    }
 }

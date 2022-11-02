@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import com.example.privatebrowser.R
 import com.example.privatebrowser.model.App
 import com.example.privatebrowser.utils.SingleLiveEvent
-import com.github.hariprasanths.bounceview.BounceView
 import kotlinx.android.synthetic.main.item_dialog_add.*
 
 class DialogAddMore(context: Context) : BaseDialog(context) {
@@ -17,9 +16,7 @@ class DialogAddMore(context: Context) : BaseDialog(context) {
     override fun layoutID(): Int = R.layout.item_dialog_add
 
     override fun initData() {
-        BounceView.addAnimTo(btnCancel).setScaleForPopOutAnim(1.1f, 1.1f)
-        BounceView.addAnimTo(btnOk).setScaleForPopOutAnim(1.1f, 1.1f)
-        BounceView.addAnimTo(btnBack).setScaleForPopOutAnim(1.1f, 1.1f)
+
     }
 
     override fun listener() {

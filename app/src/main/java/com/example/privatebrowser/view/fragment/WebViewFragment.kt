@@ -17,7 +17,6 @@ import com.example.privatebrowser.database.RoomDB
 import com.example.privatebrowser.database.TabDao
 import com.example.privatebrowser.model.Tabs
 import com.example.privatebrowser.viewmodel.TabsViewModel
-import com.github.hariprasanths.bounceview.BounceView
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.fragment_web_view.*
 import java.io.File
@@ -32,8 +31,6 @@ class WebViewFragment(var id : Long,var urlNew : String) : BaseFragment() {
     override fun layoutID(): Int = R.layout.fragment_web_view
 
     override fun initData() {
-        BounceView.addAnimTo(tabsBtn).setScaleForPopOutAnim(1.1f, 1.1f)
-        BounceView.addAnimTo(homeIcon).setScaleForPopOutAnim(1.1f, 1.1f)
         webView.apply {
             when {
                 URLUtil.isValidUrl(urlNew) -> loadUrl(urlNew)
@@ -78,7 +75,7 @@ class WebViewFragment(var id : Long,var urlNew : String) : BaseFragment() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onResume() {
         super.onResume()
-        tabsViewModel.insertTab(Tabs(id,"",urlNew = urlNew))
+        tabDao?.insertTab(Tabs(id,"",urlNew = urlNew))
         webView.apply {
             settings.javaScriptEnabled = true
             settings.setSupportZoom(true)
@@ -109,7 +106,7 @@ class WebViewFragment(var id : Long,var urlNew : String) : BaseFragment() {
                 }
             }
         }
-        tabsViewModel.updateTab(Tabs(imageWeb = "", urlNew = webView.url.toString()))
+        tabDao?.updateTab(Tabs(imageWeb = "", urlNew = webView.url.toString()))
     }
     private fun saveImage() : String{
         val bitmap = webView!!.drawToBitmap() //Bitmap.createBitmap(addBorder(view.drawToBitmap())!!, 0,dpToPx(60),view.width+10, view.height+10 -dpToPx(60))
@@ -135,6 +132,6 @@ class WebViewFragment(var id : Long,var urlNew : String) : BaseFragment() {
         val path = saveImage()
         val url = webView?.url
         val title = webView.title.toString()
-        tabsViewModel.updateTab(Tabs(id, path, url!!,title))
+        tabDao?.updateTab(Tabs(id, path, url!!,title))
     }
 }
