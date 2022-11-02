@@ -2,6 +2,7 @@ package com.example.privatebrowser.view.activity
 
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import com.example.privatebrowser.R
 import com.example.privatebrowser.repository.TabRepository
@@ -10,10 +11,12 @@ import com.example.privatebrowser.view.fragment.HomeFragment
 import com.example.privatebrowser.view.fragment.TabsFragment
 import com.example.privatebrowser.view.fragment.WebViewFragment
 import com.example.privatebrowser.viewmodel.PrivateBrowserViewModel
+import com.example.privatebrowser.viewmodel.TabsViewModel
 import java.io.File
 
 class PrivateBrowserActivity : BaseActivity() {
     lateinit var tabRepository : TabRepository
+    private  val tabsViewModel : TabsViewModel by viewModels()
     private  val mPrivateBrowserViewModel : PrivateBrowserViewModel by viewModels()
     private val listenEventFragment: SingleLiveEvent<Fragment> = SingleLiveEvent()
     val event: LiveData<Fragment> by lazy {
@@ -59,7 +62,7 @@ class PrivateBrowserActivity : BaseActivity() {
 
     override fun onPause() {
         File(applicationContext.filesDir.path).deleteRecursively()
-        tabRepository.deleteAllTab()
+        tabsViewModel.deleteAllTab()
         super.onPause()
     }
 

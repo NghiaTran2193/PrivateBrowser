@@ -41,6 +41,10 @@ class TabsViewModel(application: Application, savedStateHandle: SavedStateHandle
             tabRepository.deleteTab(id)
         }
     }
-
+    fun deleteAllTab() {
+        viewModelScope.launch(Dispatchers.IO) {
+            tabRepository.deleteAllTab()
+        }
+    }
 
 }
