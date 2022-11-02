@@ -9,7 +9,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.privatebrowser.model.Tabs
 import com.example.privatebrowser.repository.TabRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 class TabsViewModel(application: Application, savedStateHandle: SavedStateHandle) :
     BaseViewModel(application, savedStateHandle) {
@@ -24,8 +26,20 @@ class TabsViewModel(application: Application, savedStateHandle: SavedStateHandle
     }
 
 
-
-
-
+    fun insertTab(tabs: Tabs){
+        viewModelScope.launch(Dispatchers.IO){
+            tabRepository.insertTab(tabs)
+        }
+    }
+    fun updateTab(tabs: Tabs){
+        viewModelScope.launch(Dispatchers.IO) {
+            tabRepository.updateTab(tabs)
+        }
+    }
+    fun deleteTab(id : Long) {
+        viewModelScope.launch(Dispatchers.IO) {
+            tabRepository.deleteTab(id)
+        }
+    }
 
 }

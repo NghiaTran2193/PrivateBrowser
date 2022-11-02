@@ -7,11 +7,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.privatebrowser.R
-import com.example.privatebrowser.database.RoomDB
-import com.example.privatebrowser.database.TabDao
 import com.example.privatebrowser.model.Tabs
 import com.example.privatebrowser.view.adapter.RecycleviewAdapter
 import com.example.privatebrowser.viewmodel.TabsViewModel
+import com.github.hariprasanths.bounceview.BounceView
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.coroutines.flow.collectLatest
 
@@ -21,11 +20,11 @@ class TabsFragment: BaseFragment(){
     private val recyclerView: RecyclerView by lazy { view!!.findViewById(R.id.recyclerViewTabs) }
     lateinit var rcvAdapter: RecycleviewAdapter
     lateinit var gridLayoutManager : GridLayoutManager
-//    private var roomDB : RoomDB? = null
-//    private lateinit var tabDao: TabDao
     override fun layoutID(): Int = R.layout.fragment_tabs
 
     override fun initData() {
+        BounceView.addAnimTo(tabsBtn).setScaleForPopOutAnim(1.1f, 1.1f)
+        BounceView.addAnimTo(homeIcon).setScaleForPopOutAnim(1.1f, 1.1f)
         rcvAdapter = RecycleviewAdapter()
     }
 
@@ -52,7 +51,7 @@ class TabsFragment: BaseFragment(){
                     requireActivity().supportFragmentManager.beginTransaction().replace(R.id.privateBrowser,WebViewFragment(it.id, it.urlNew)).commit()
                 }
                 is Long -> {
-                    tabsViewModel.tabRepository.deleteTab(it)
+                    tabsViewModel.deleteTab(it)
                 }
             }
         }
@@ -62,8 +61,6 @@ class TabsFragment: BaseFragment(){
     }
 
     override fun listener() {
-//        roomDB = RoomDB.getAppDatabase(requireContext())
-//        tabDao = roomDB?.tabDao()!!
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.privateBrowser,HomeFragment()).commit()

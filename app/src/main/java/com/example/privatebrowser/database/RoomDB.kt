@@ -20,7 +20,7 @@ abstract class RoomDB: RoomDatabase() {
         fun getAppDatabase(context: Context): RoomDB{
             if (INSTATE == null){
                 INSTATE = Room.databaseBuilder(context, RoomDB::class.java, "private_browser")
-                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build()
             }
             return INSTATE!!
