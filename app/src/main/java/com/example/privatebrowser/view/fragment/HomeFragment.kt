@@ -14,8 +14,10 @@ import com.example.privatebrowser.view.adapter.RecycleViewBookMarkAdapter
 import com.example.privatebrowser.view.dialog.DialogAddMore
 import com.example.privatebrowser.viewmodel.AppViewModel
 import com.example.privatebrowser.viewmodel.TabsViewModel
+import com.github.hariprasanths.bounceview.BounceView
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.item_dialog_add.*
 import kotlinx.coroutines.flow.collectLatest
 
 class HomeFragment : BaseFragment() {
@@ -27,7 +29,7 @@ class HomeFragment : BaseFragment() {
     override fun layoutID(): Int = R.layout.fragment_home
 
     override fun initData() {
-
+        BounceView.addAnimTo(tabsBtn).setScaleForPopOutAnim(1.1f,1.1f)
         mAdapter = RecycleViewBookMarkAdapter()
 
     }
