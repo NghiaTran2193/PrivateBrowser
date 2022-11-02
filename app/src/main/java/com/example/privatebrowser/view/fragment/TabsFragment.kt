@@ -23,8 +23,6 @@ class TabsFragment: BaseFragment(){
     private val recyclerView: RecyclerView by lazy { view!!.findViewById(R.id.recyclerViewTabs) }
     lateinit var rcvAdapter: RecycleviewAdapter
     lateinit var gridLayoutManager : GridLayoutManager
-//    private var roomDB : RoomDB? = null
-//    private lateinit var tabDao: TabDao
     override fun layoutID(): Int = R.layout.fragment_tabs
 
     override fun initData() {
@@ -60,7 +58,7 @@ class TabsFragment: BaseFragment(){
                 }
             }
         }
-        tabsViewModel.tabRepository.getCount().observe(this){
+        tabsViewModel.getCount().observe(this){
             tabsBtn.text = it.toString()
         }
     }

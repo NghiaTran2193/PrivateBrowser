@@ -1,6 +1,7 @@
 package com.example.privatebrowser.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -45,6 +46,9 @@ class TabsViewModel(application: Application, savedStateHandle: SavedStateHandle
         viewModelScope.launch(Dispatchers.IO) {
             tabRepository.deleteAllTab()
         }
+    }
+    fun getCount(): LiveData<Int> {
+           return tabRepository.getCount()
     }
 
 }

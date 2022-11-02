@@ -47,7 +47,7 @@ class WebViewFragment(var id : Long,var urlNew : String) : BaseFragment() {
         loadImage(homeIcon, R.drawable.ic_home_24px)
     }
     override fun listenLiveData() {
-        tabsViewModel.tabRepository.getCount().observe(this){
+        tabsViewModel.getCount().observe(this){
             tabsBtn.text = it.toString()
         }
     }

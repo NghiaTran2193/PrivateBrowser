@@ -78,7 +78,7 @@ class HomeFragment : BaseFragment() {
                 }
             }
         }
-        tabsViewModel.tabRepository.getCount().observe(this) {
+        tabsViewModel.getCount().observe(this) {
             tabsBtn.text = it.toString()
         }
     }
