@@ -40,6 +40,17 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         appRepository.getCount()
     }
 
+    fun updateApp(id: Long){
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.appDao.updateApp(id)
+        }
+    }
+    fun updateAppAll(){
+        viewModelScope.launch(Dispatchers.IO) {
+            appRepository.appDao.updateAppAll()
+        }
+    }
+
     fun load(){
         insertApp(App(name = "Add more", logo = R.drawable.ic_add_more))
     }

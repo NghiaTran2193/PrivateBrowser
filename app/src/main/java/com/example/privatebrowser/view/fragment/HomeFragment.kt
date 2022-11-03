@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.privatebrowser.MainActivity
 import com.example.privatebrowser.R
 import com.example.privatebrowser.model.App
+import com.example.privatebrowser.model.Tabs
 import com.example.privatebrowser.view.adapter.RecycleViewBookMarkAdapter
 import com.example.privatebrowser.view.dialog.DialogAddMore
 import com.example.privatebrowser.viewmodel.AppViewModel
@@ -76,6 +77,9 @@ class HomeFragment : BaseFragment() {
                 is Long -> {
                      appViewModel.deleteApp(it)
                 }
+                is Tabs -> {
+                    appViewModel.updateApp(it.id)
+                }
             }
         }
         tabsViewModel.getCount().observe(this) {
@@ -84,6 +88,9 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun listener() {
+        start.setOnClickListener {
+            appViewModel.updateAppAll()
+        }
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 goToNewActivity(MainActivity::class.java)

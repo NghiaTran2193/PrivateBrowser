@@ -16,7 +16,7 @@ class AppRepository (application: Application) {
             return instance!!
         }
     }
-    private val appDao = RoomDB.getAppDatabase(application).appDao()
+    val appDao = RoomDB.getAppDatabase(application).appDao()
     fun getAll(): PagingSource<Int, App>{
         return appDao.getAll()
     }

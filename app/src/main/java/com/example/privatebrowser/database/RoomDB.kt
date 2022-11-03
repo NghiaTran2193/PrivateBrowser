@@ -9,7 +9,7 @@ import com.example.privatebrowser.model.Tabs
 
 @Database(
     entities = [App::class, Tabs::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 abstract class RoomDB: RoomDatabase() {

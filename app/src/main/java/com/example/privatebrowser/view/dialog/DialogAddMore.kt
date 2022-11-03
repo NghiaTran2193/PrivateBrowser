@@ -27,7 +27,7 @@ class DialogAddMore(context: Context) : BaseDialog(context) {
         btnBack.setOnClickListener { dismiss() }
         btnOk.setOnClickListener {
             if ((edLink.text.isNotEmpty() && edTitle.text.isNotEmpty())&&(edLink.text.isNotBlank() && edTitle.text.isNotBlank()) ) {
-                listenEventDialog.postValue(App(name = edTitle.text.toString(), url = edLink.text.toString()))
+                listenEventDialog.postValue(App(name = edTitle.text.toString(), url = edLink.text.toString(), isCheck = false))
                 dismiss()
             } else {
                 Toast.makeText(context, "NoInformation", Toast.LENGTH_LONG).show()

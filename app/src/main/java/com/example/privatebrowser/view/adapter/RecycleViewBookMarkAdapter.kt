@@ -68,6 +68,11 @@ class RecycleViewBookMarkAdapter : PagingDataAdapter<App, RecyclerView.ViewHolde
             }
             else Glide.with(itemView.context).load("https://api.faviconkit.com/${app.url}/100").centerCrop().into(bookmarkIcon)
             bookmarkName.text = app.name
+            if (app.isCheck){
+                btnDeleteApp.visibility = View.VISIBLE
+            }else{
+                btnDeleteApp.visibility = View.GONE
+            }
             itemView.setOnClickListener {
                 if (app.logo == R.drawable.ic_add_more){
                     listenerEvent.value = app.logo
@@ -75,14 +80,14 @@ class RecycleViewBookMarkAdapter : PagingDataAdapter<App, RecyclerView.ViewHolde
                     listenerEvent.value = app
                 }
             }
+            btnDeleteApp.setOnClickListener {
+                listenerEvent.value = app.id
+            }
             itemView.setOnLongClickListener {
                 if (app.logo == R.drawable.ic_add_more){
 
                 }else{
-                    btnDeleteApp.visibility = View.VISIBLE
-                    btnDeleteApp.setOnClickListener {
-                        listenerEvent.value = app.id
-                    }
+                    listenerEvent.value= Tabs(id = app.id)
                 }
                 return@setOnLongClickListener true
             }
